@@ -168,3 +168,18 @@ python manage.py shell
 #>>> Post.published.filter(title__startswith='Who')
 
 python manage.py runserver
+
+python manage.py shell
+#>>> from blog.models import Post
+#>>> post = Post.objects.get(id=1)
+#>>> post
+#<Post: Who is John Wick?>
+#>>> post.tags.all()
+#<QuerySet []>
+#>>> post.tags.add('movie', 'gun', 'man')
+#>>> post.tags.all()
+#<QuerySet [<Tag: gun>, <Tag: movie>, <Tag: man>]>
+#>>> post.tags.remove('gun')
+#>>> post.tags.all()
+#<QuerySet [<Tag: movie>, <Tag: man>]>
+#>>>
