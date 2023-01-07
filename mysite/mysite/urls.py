@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
+    # 如果urlpatterns保持默认(只有 path('admin/', admin.site.urls) 一个元素), 那么根目录有默认的handler
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls', namespace='blog')),
 ]
